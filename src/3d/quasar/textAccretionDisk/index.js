@@ -28,7 +28,7 @@ export function addTextAccretionDisk(scene) {
       flow.object3D.frustumCulled = false;
 
       if (radius <= 110) {
-        const warpedFlow = createTextFlow(scene, text.repeat(2), font, fontSize, material, radius, depth, orbitSpeed, true);
+        const warpedFlow = createTextFlow(scene, text.repeat(5), font, fontSize, material, radius, depth, orbitSpeed, true);
         warpedFlow.object3D.frustumCulled = false;
       }
 

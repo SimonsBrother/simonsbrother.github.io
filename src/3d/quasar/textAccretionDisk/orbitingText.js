@@ -58,7 +58,7 @@ export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius
     font: font,
     size: warpedDisk ? fontSize * scaleFactor : fontSize,
     depth: fontDepth,
-    curveSegments: 3,
+    curveSegments: 1,
   });
 
   const textMesh = new THREE.Mesh(geometry, fontMaterial);
@@ -113,7 +113,7 @@ function generateCirclePointPositions(numPoints, radius) {
   return pointPositions;
 }
 
-const warpedDiskScale = { xScale: 5, yScale: 3, offsetScale: 1.5 };
+const warpedDiskScale = { xScale: 5, yScale: 3.5, offsetScale: 1.5, xyScale: 1.2 };
 const warpedDiskShape = drawWarpedAccretionShape(warpedDiskScale);
 let warpedDiskWidestWidth = warpedDiskScale.xScale * BLACK_HOLE_RADIUS;
 
@@ -128,11 +128,12 @@ function generateWarpedPointPositions(numPoints) {
  * @param xScale how much larger relative to the black hole radius that the shape should be.
  * @param yScale same as xScale, but for height.
  * @param offsetScale how 'squished' the shape should be.
+ * @param xyScale a factor applied to both x and y scaling.
  */
-function drawWarpedAccretionShape({ xScale = 5, yScale = 2.5, offsetScale = 1 }) {
+function drawWarpedAccretionShape({ xScale = 5, yScale = 2.5, offsetScale = 1, xyScale = 1 }) {
   const shape = new THREE.Shape();
-  const curveWidth = BLACK_HOLE_RADIUS * xScale;
-  const curveHeight = BLACK_HOLE_RADIUS * yScale;
+  const curveWidth = BLACK_HOLE_RADIUS * xScale * xyScale;
+  const curveHeight = BLACK_HOLE_RADIUS * yScale * xyScale;
   const xOffset = BLACK_HOLE_RADIUS * offsetScale;
 
   const halfWidth = curveWidth / 2;
