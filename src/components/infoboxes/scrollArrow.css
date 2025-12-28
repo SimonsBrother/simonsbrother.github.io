@@ -11,7 +11,7 @@
     font-size: 10dvh;
     text-shadow: 0 2px 5px black, 0 -2px 5px black;
 
-    transform: translateY(100%);
+    transform: translateY(100vh);
     transition: transform 0.2s;
   }
 
