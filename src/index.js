@@ -5,7 +5,7 @@ import { Planet } from './3d/planet';
 import { setupDoubleClickUnfocus, setupFocusing, updateFocus } from './3d/focus';
 import { addBlackHole } from './3d/quasar/blackHole';
 import { addPlanets } from './planets';
-import { addBlackholeOutline, addPostProcessing } from './3d/postProcessing';
+import { addPostProcessing } from './3d/postProcessing';
 import { logCameraPosAndRotation, runIntroAnimation, setupCameraInitialStateForIntroduction } from './3d/introAnimation';
 import { setupCameraAnimation } from './3d/cameraAnimation';
 import { setupComponents } from './components/componentLoader';
@@ -14,8 +14,6 @@ import { addTextAccretionDisk } from './3d/quasar/textAccretionDisk';
 import { loading } from './3d/loadingState';
 import { ConditionalScrollSystem } from './components/scrollSystem/conditionalScrollSystem';
 import { setupBorders } from './components/globalstyles/borders';
-import { addSideAccretionDiskShape, updateSideAccretionDisk } from './3d/quasar/sideAccretionDisks';
-import {setupWarpedDisks} from "./3d/quasar/textAccretionDisk/orbitingText";
 
 // Prioritised
 const scrollSystem = new ConditionalScrollSystem();
@@ -39,11 +37,8 @@ addLight(scene);
 const batchedRenderer = new QUARKS.BatchedRenderer();
 const updateAccretionDiskFlows = addTextAccretionDisk(scene);
 addPlanets(scene);
-const blackHoleSphere = addBlackHole(scene, camera);
+addBlackHole(scene, camera);
 const composer = addPostProcessing(scene, camera, renderer); // Do post-processing last
-setupWarpedDisks(scene);
-// addBlackholeOutline(scene, camera, composer, blackHoleSphere);
-// addSideAccretionDiskShape(scene);
 
 // UI
 setupPointer(camera);

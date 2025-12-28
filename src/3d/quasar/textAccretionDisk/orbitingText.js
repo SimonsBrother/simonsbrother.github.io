@@ -1,17 +1,13 @@
 import { TextGeometry } from 'three/addons';
 import * as THREE from 'three';
 import { Flow } from 'three/addons/modifiers/CurveModifier';
-import { BLACK_HOLE_RADIUS } from '../quasarConfig';
+import { BLACK_HOLE_RADIUS, NUM_CIRCLE_POINTS, WARPED_DISK_SCALE } from '../quasarConfig';
 
 const rad = deg => (deg * Math.PI) / 180.0;
 const flows = [];
-
-const warpedDisksParent = new THREE.Object3D();
-export function setupWarpedDisks(scene) {
-  scene.add(warpedDisksParent);
-}
-
-const baseRotationSpeed = 0.1;
+const RIGHT_ANGLE_IN_RADIANS = rad(90);
+const warpedDiskShape = drawWarpedAccretionShape(WARPED_DISK_SCALE);
+let warpedDiskWidestWidth = WARPED_DISK_SCALE.xScale * BLACK_HOLE_RADIUS;
 
 /**
  * Updates the positions of all generated disks.
@@ -32,15 +28,12 @@ export function updateFlows(delta, camera) {
 
 function pointFlowTowardsCamera(flow, cameraRotationMatrix) {
   const curve = flow.curveArray[0];
-  cameraRotationMatrix = cameraRotationMatrix.clone().scale(new THREE.Vector3(curve.scaleFactor, curve.scaleFactor, 1));
+  cameraRotationMatrix = cameraRotationMatrix.clone().scale(curve.scaleVector);
   curve.originalCurve.points.forEach((point, index) => {
     curve.points[index] = point.clone().applyMatrix4(cameraRotationMatrix);
   });
   flow.updateCurve(0, curve);
 }
-
-const NUM_CIRCLE_POINTS = 16;
-const RIGHT_ANGLE_IN_RADIANS = rad(90);
 
 /**
  * Creates a circular text flow; this is a path that text follows.
@@ -54,11 +47,10 @@ const RIGHT_ANGLE_IN_RADIANS = rad(90);
  * @param orbitSpeed {number} a fast text orbits around the black hole.
  * @param warpedDisk {boolean} true if the disk is meant to represent light from behind the black hole, forming a warped disk.
  */
-export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius, fontDepth = 1, orbitSpeed = baseRotationSpeed, warpedDisk = false) {
-  const scaleFactor = radius / warpedDiskWidestWidth * 1.9; // For warped disks
+export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius, fontDepth = 1, orbitSpeed = 0.1, warpedDisk = false) {
   const geometry = new TextGeometry(text, {
     font: font,
-    size: warpedDisk ? fontSize * scaleFactor : fontSize,
+    size: fontSize,
     depth: fontDepth,
     curveSegments: 1,
   });
@@ -75,8 +67,12 @@ export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius
   else {
     curve = new THREE.CatmullRomCurve3(generateCirclePointPositions(NUM_CIRCLE_POINTS, radius));
   }
-  curve.curveType = 'centripetal';
   curve.closed = true;
+  if (warpedDisk) {
+    curve.originalCurve = curve.clone();
+    curve.scaleFactor = radius / warpedDiskWidestWidth * 1.9;
+    curve.scaleVector = new THREE.Vector3(curve.scaleFactor, curve.scaleFactor, 1);
+  }
 
   // Flow for movement
   const flow = new Flow(textMesh);
@@ -85,12 +81,6 @@ export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius
   flow.isWarpedDisk = warpedDisk;
   scene.add(flow.object3D);
   flows.push(flow);
-
-  if (warpedDisk) {
-    warpedDisksParent.add(flow.object3D);
-    curve.originalCurve = curve.clone();
-    curve.scaleFactor = scaleFactor;
-  }
 
   return flow;
 }
@@ -114,10 +104,6 @@ function generateCirclePointPositions(numPoints, radius) {
   }
   return pointPositions;
 }
-
-const warpedDiskScale = { xScale: 5, yScale: 3.5, offsetScale: 1.5, xyScale: 1.2 };
-const warpedDiskShape = drawWarpedAccretionShape(warpedDiskScale);
-let warpedDiskWidestWidth = warpedDiskScale.xScale * BLACK_HOLE_RADIUS;
 
 function generateWarpedPointPositions(numPoints) {
   return warpedDiskShape.getPoints(numPoints).map((v2) => {
