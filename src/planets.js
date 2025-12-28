@@ -69,6 +69,26 @@ export const planetDefinitions = [
     orbitOrientation: new THREE.Euler(0, 0, 0),
     orbitCentre: new THREE.Vector3(0, 10, 0),
   },
+
+  {
+    name: 'Test planet 2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum mollis mauris, nec porttitor metus faucibus a. Integer egestas mauris in porttitor vehicula. Quisque ullamcorper sem sit amet finibus porta. Vestibulum tincidunt est nec lectus luctus, eget condimentum diam dapibus. Donec tempus tellus sit amet lorem ultricies, vitae pharetra ex egestas. Quisque scelerisque erat at ex sollicitudin, sollicitudin finibus mi dapibus. Phasellus ullamcorper tellus non tortor suscipit varius. Vestibulum leo est, laoreet id neque ut, feugiat facilisis enim. Sed non euismod erat. Quisque finibus a lectus tristique rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum mollis mauris, nec porttitor metus faucibus a. Integer egestas mauris in porttitor vehicula. Quisque ullamcorper sem sit amet finibus porta. Vestibulum tincidunt est nec lectus luctus, eget condimentum diam dapibus.',
+
+    tags: [
+      TAGS.PYTHON,
+    ],
+
+    iconPath: 'img/test.svg',
+    planetSize: 5,
+
+    orbitRadius: 200,
+    orbitStartingAngle: 0,
+    orbitSpeed: 1,
+
+    planetRotationSpeed: new THREE.Euler(25, 0, 0),
+    orbitOrientation: new THREE.Euler(0, 0, 0),
+    orbitCentre: new THREE.Vector3(0, 10, 0),
+  },
 ];
 
 const test = false;

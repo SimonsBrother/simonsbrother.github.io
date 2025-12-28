@@ -50,10 +50,19 @@ export class Planet {
     this.centreParent.add(this.orbitLine);
 
     // Load model
-    loader.load(this.modelPath,
-      gltf => this.onPlanetModelLoaded(gltf),
-      undefined,
-      console.error);
+    if (this.modelPath) {
+      loader.load(this.modelPath,
+        gltf => this.onPlanetModelLoaded(gltf),
+        undefined,
+        console.error);
+    }
+    else {
+      console.warn(`Missing model path, generating placeholder for ${config.name}.`);
+      const geometry = new THREE.TorusKnotGeometry(5, 1, 100, 16);
+      const material = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
+      const torusKnot = new THREE.Mesh(geometry, material);
+      this.onPlanetModelLoaded({ scene: torusKnot });
+    }
   }
 
   static get defaultConfig() {
