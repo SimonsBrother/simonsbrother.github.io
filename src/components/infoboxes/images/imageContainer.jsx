@@ -29,7 +29,6 @@ export class ImageContainer extends ScrollableElement {
           key={index}
           imageUrl={image.url}
           altText={image.altText}
-          visible={this.props.visible}
           index={index}
           focused={this.state.selectedIndex === index}
           onClick={index => this.onImageClicked(index)}
