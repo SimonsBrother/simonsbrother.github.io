@@ -1,6 +1,7 @@
 export const BLACK_HOLE_RADIUS = 40;
 export const WIDTH_SCALE_FACTOR = 1;
 export const ACCRETION_WIDTH = 200;
+export const MIN_WARPED_DISK_RADIUS = BLACK_HOLE_RADIUS + 10;
 export const MAX_WARPED_DISK_RADIUS = 110;
 export const NUM_CIRCLE_POINTS = 16;
 export const WARPED_DISK_SCALE = { xScale: 5, yScale: 3.5, offsetScale: 1.5, xyScale: 1.2 };

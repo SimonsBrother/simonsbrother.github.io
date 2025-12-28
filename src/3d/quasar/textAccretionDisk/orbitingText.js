@@ -70,7 +70,7 @@ export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius
   curve.closed = true;
   if (warpedDisk) {
     curve.originalCurve = curve.clone();
-    curve.scaleFactor = radius / warpedDiskWidestWidth * 1.9;
+    curve.scaleFactor = radius / warpedDiskWidestWidth * 1.8;
     curve.scaleVector = new THREE.Vector3(curve.scaleFactor, curve.scaleFactor, 1);
   }
 
@@ -79,6 +79,7 @@ export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius
   flow.orbitSpeed = orbitSpeed;
   flow.updateCurve(0, curve);
   flow.isWarpedDisk = warpedDisk;
+  flow.object3D.frustumCulled = false;
   scene.add(flow.object3D);
   flows.push(flow);
 
