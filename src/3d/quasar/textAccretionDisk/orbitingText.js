@@ -32,6 +32,7 @@ export function updateFlows(delta, camera) {
 
 function pointFlowTowardsCamera(flow, cameraRotationMatrix) {
   const curve = flow.curveArray[0];
+  cameraRotationMatrix = cameraRotationMatrix.clone().scale(new THREE.Vector3(curve.scaleFactor, curve.scaleFactor, 1));
   curve.originalCurve.points.forEach((point, index) => {
     curve.points[index] = point.clone().applyMatrix4(cameraRotationMatrix);
   });
@@ -51,9 +52,10 @@ const RIGHT_ANGLE_IN_RADIANS = rad(90);
  * @param radius {number} the distance from the centre the closest edge of the text should be.
  * @param fontDepth {number} the deep th e font is.
  * @param orbitSpeed {number} a fast text orbits around the black hole.
+ * @param warpedDisk {boolean} true if the disk is meant to represent light from behind the black hole, forming a warped disk.
  */
 export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius, fontDepth = 1, orbitSpeed = baseRotationSpeed, warpedDisk = false) {
-  const scaleFactor = radius / warpedDiskWidestWidth * 2; // For warped disks
+  const scaleFactor = radius / warpedDiskWidestWidth * 1.9; // For warped disks
   const geometry = new TextGeometry(text, {
     font: font,
     size: warpedDisk ? fontSize * scaleFactor : fontSize,
@@ -85,9 +87,9 @@ export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius
   flows.push(flow);
 
   if (warpedDisk) {
-    flow.object3D.scale.set(scaleFactor, scaleFactor, 1);
     warpedDisksParent.add(flow.object3D);
     curve.originalCurve = curve.clone();
+    curve.scaleFactor = scaleFactor;
   }
 
   return flow;

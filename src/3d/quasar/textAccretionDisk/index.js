@@ -7,7 +7,7 @@ import {
   getMaterialForDistance,
   getOrbitSpeedForDistance,
 } from './gradientSystem';
-import { ACCRETION_WIDTH, BLACK_HOLE_RADIUS, WIDTH_SCALE_FACTOR } from '../quasarConfig';
+import { ACCRETION_WIDTH, BLACK_HOLE_RADIUS, MAX_WARPED_DISK_RADIUS, WIDTH_SCALE_FACTOR } from '../quasarConfig';
 import { loading } from '../../loadingState';
 
 const loader = new FontLoader();
@@ -27,7 +27,7 @@ export function addTextAccretionDisk(scene) {
       const flow = createTextFlow(scene, text, font, fontSize, material, radius, depth, orbitSpeed);
       flow.object3D.frustumCulled = false;
 
-      if (radius <= 110) {
+      if (radius <= MAX_WARPED_DISK_RADIUS) {
         const warpedFlow = createTextFlow(scene, text.repeat(5), font, fontSize, material, radius, depth, orbitSpeed, true);
         warpedFlow.object3D.frustumCulled = false;
       }

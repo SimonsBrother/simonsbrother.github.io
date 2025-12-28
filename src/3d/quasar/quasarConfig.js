@@ -1,6 +1,7 @@
 export const BLACK_HOLE_RADIUS = 40;
 export const WIDTH_SCALE_FACTOR = 1;
 export const ACCRETION_WIDTH = 200;
+export const MAX_WARPED_DISK_RADIUS = 110;
 
 // WARNING: distances that are not round are ignored TODO fix
 // TODO make configurations consistent
