@@ -14,7 +14,10 @@ export class ScrollableElement extends React.Component {
     this.scrollableRef = React.createRef();
 
     document.addEventListener(EVENTS.PLANET_FOCUSSED, () => this.resetScroll());
-    document.addEventListener(EVENTS.PLANET_UNFOCUSSED, () => this.resetScroll());
+    document.addEventListener(EVENTS.PLANET_UNFOCUSSED, () => {
+      // Delay to prevent sudden snap
+      setTimeout(() => this.resetScroll(), 1000);
+    });
     document.addEventListener(EVENTS.PLANET_CHANGED, () => this.resetScroll());
     window.addEventListener('resize', () => this.resetScroll());
     this.resetScroll();
