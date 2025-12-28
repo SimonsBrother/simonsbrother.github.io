@@ -72,6 +72,7 @@ export function createTextFlow(scene, text, font, fontSize, fontMaterial, radius
     curve.originalCurve = curve.clone();
     curve.scaleFactor = radius / warpedDiskWidestWidth * 1.8;
     curve.scaleVector = new THREE.Vector3(curve.scaleFactor, curve.scaleFactor, 1);
+    geometry.rotateZ(2 * RIGHT_ANGLE_IN_RADIANS);
   }
 
   // Flow for movement
