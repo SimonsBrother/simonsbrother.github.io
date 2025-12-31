@@ -33,7 +33,7 @@ export function setupFocusing(camera_, controls_) {
 
 export function setupDoubleClickUnfocus() {
   // This works for both double click and double tap
-  document.getElementById('threejs-canvas').addEventListener('dblclick', () => {
+  document.addEventListener('dblclick', () => {
     if (!followTarget) return;
     stopFollowing();
   });
