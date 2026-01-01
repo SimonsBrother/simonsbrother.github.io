@@ -3,7 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { NavBtn } from './navBtn/navBtn';
 import { Sidebar } from './sidebar/sidebar';
-import { planetDefinitions } from '../planets';
+import { planetDefinitions } from '../content/planets';
 import { Infoboxes } from './infoboxes/infoboxes';
 import { Tutorial } from './tutorial/tutorial';
 

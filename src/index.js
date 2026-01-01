@@ -4,7 +4,7 @@ import * as QUARKS from 'three.quarks';
 import { Planet } from './3d/planet';
 import { setupDoubleClickUnfocus, setupFocusing, updateFocus } from './3d/focus';
 import { addBlackHole } from './3d/quasar/blackHole';
-import { addPlanets } from './planets';
+import { addPlanets } from './content/planets';
 import { addPostProcessing } from './3d/postProcessing';
 import { logCameraPosAndRotation, runIntroAnimation, setupCameraInitialStateForIntroduction } from './3d/introAnimation';
 import { setupCameraAnimation } from './3d/cameraAnimation';
@@ -36,9 +36,9 @@ addCubeMap(scene);
 addLight(scene);
 const batchedRenderer = new QUARKS.BatchedRenderer();
 const updateAccretionDiskFlows = addTextAccretionDisk(scene);
+const composer = addPostProcessing(scene, camera, renderer);
 addPlanets(scene);
 addBlackHole(scene, camera);
-const composer = addPostProcessing(scene, camera, renderer); // Do post-processing last
 
 // UI
 setupPointer(camera);

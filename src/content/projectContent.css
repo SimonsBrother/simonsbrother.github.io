@@ -1,0 +1,11 @@
+.project-list {
+  padding-left: 1rem;
+}
+
+.project-list-item {
+  padding-bottom: 1rem;
+}
+
+.project-last-list-item {
+  padding-bottom: 0;
+}

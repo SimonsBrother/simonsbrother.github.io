@@ -1,9 +1,10 @@
 import * as THREE from 'three';
-import { Planet } from './3d/planet';
-import { loading } from './3d/loadingState';
+import { Planet } from '../3d/planet';
+import { loading } from '../3d/loadingState';
 import { tagDefinitions as TAGS } from './tags';
+import { projectDefinitions } from './projectDefinitions';
 
-export const planetDefinitions = [
+const testPlanetDefinitions = [
   {
     name: 'Test planet 1',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum mollis mauris, nec porttitor metus faucibus a. Integer egestas mauris in porttitor vehicula. Quisque ullamcorper sem sit amet finibus porta. Vestibulum tincidunt est nec lectus luctus, eget condimentum diam dapibus. Donec tempus tellus sit amet lorem ultricies, vitae pharetra ex egestas. Quisque scelerisque erat at ex sollicitudin, sollicitudin finibus mi dapibus. Phasellus ullamcorper tellus non tortor suscipit varius. Vestibulum leo est, laoreet id neque ut, feugiat facilisis enim. Sed non euismod erat. Quisque finibus a lectus tristique rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum mollis mauris, nec porttitor metus faucibus a. Integer egestas mauris in porttitor vehicula. Quisque ullamcorper sem sit amet finibus porta. Vestibulum tincidunt est nec lectus luctus, eget condimentum diam dapibus. Donec tempus tellus sit amet lorem ultricies, vitae pharetra ex egestas. Quisque scelerisque erat at ex sollicitudin, sollicitudin finibus mi dapibus. Phasellus ullamcorper tellus non tortor suscipit varius. Vestibulum leo est, laoreet id neque ut, feugiat facilisis enim. Sed non euismod erat. Quisque finibus a lectus tristique rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum mollis mauris, nec porttitor metus faucibus a. Integer egestas mauris in porttitor vehicula. Quisque ullamcorper sem sit amet finibus porta. Vestibulum tincidunt est nec lectus luctus, eget condimentum diam dapibus. Donec tempus tellus sit amet lorem ultricies, vitae pharetra ex egestas. Quisque scelerisque erat at ex sollicitudin, sollicitudin finibus mi dapibus. Phasellus ullamcorper tellus non tortor suscipit varius. Vestibulum leo est, laoreet id neque ut, feugiat facilisis enim. Sed non euismod erat. '
@@ -90,6 +91,8 @@ export const planetDefinitions = [
     orbitCentre: new THREE.Vector3(0, 10, 0),
   },
 ];
+
+export const planetDefinitions = projectDefinitions;
 
 const test = false;
 if (test) {
