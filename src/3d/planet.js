@@ -58,10 +58,10 @@ export class Planet {
     }
     else {
       console.warn(`Missing model path, generating placeholder for ${config.name}.`);
-      const geometry = new THREE.TorusKnotGeometry(5, 1, 100, 16);
+      const geometry = new THREE.TetrahedronGeometry(config.defaultModelSize || config.planetSize, 3);
       const material = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
-      const torusKnot = new THREE.Mesh(geometry, material);
-      this.onPlanetModelLoaded({ scene: torusKnot });
+      const tetrahedron = new THREE.Mesh(geometry, material);
+      this.onPlanetModelLoaded({ scene: tetrahedron });
     }
   }
 
@@ -71,9 +71,9 @@ export class Planet {
       orbitStartingAngle: 0,
       orbitSpeed: 5,
       planetSize: 3,
-      planetRotationSpeed: new THREE.Euler(0, 0.1, 0),
+      planetRotationSpeed: new THREE.Euler(0, 5, 0),
       orbitOrientation: new THREE.Euler(0, 0, 0),
-      orbitCentre: new THREE.Vector3(0, 0, 0),
+      orbitCentre: new THREE.Vector3(0, 10, 0),
     };
   }
 

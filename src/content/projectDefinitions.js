@@ -54,9 +54,5 @@ export const projectDefinitions = [
     orbitRadius: 80,
     orbitStartingAngle: 0,
     orbitSpeed: 1,
-
-    planetRotationSpeed: new THREE.Euler(25, 0, 0),
-    orbitOrientation: new THREE.Euler(0, 0, 0),
-    orbitCentre: new THREE.Vector3(0, 10, 0),
   },
 ];
