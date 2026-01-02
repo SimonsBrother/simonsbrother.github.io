@@ -42,6 +42,12 @@ export const tagDefinitions = {
     secondaryColor: '#82b9e5',
     textColor: '#fff',
   },
+  PYQT: {
+    name: 'PyQt',
+    primaryColor: '#56b953',
+    secondaryColor: '#fff',
+    textColor: '#fff',
+  },
 
   PERSONAL: {
     name: 'Personal',

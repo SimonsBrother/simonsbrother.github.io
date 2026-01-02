@@ -15,3 +15,8 @@
   color: lightgray;
   font-style: italic;
 }
+
+.project-heading {
+  text-align: center;
+  margin-inline: auto;
+}

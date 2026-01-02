@@ -19,12 +19,12 @@ function b(text) {
   return `<b>${text}</b>`;
 }
 
-/**
- * Creates a styled date
- * @param {number} year
- */
 function date(year) {
   return `<span class="project-date">${year}</span>`;
+}
+
+function heading(text) {
+  return `<h2 class="project-heading">${text}</h2>`;
 }
 
 /**
@@ -77,7 +77,7 @@ export const projectDefinitions = [
     description: bulletPoints([
       'Designed and developed a personal website for showcasing programming projects',
       `Utilised ${b('HTML')}, ${b('CSS')}, ${b('JavaScript')}, ${b('React')}, ${b('Three.JS')}, `
-      + `${b('Vite')}, and ${b('ESLint')} to create an engaging and unique portfolio, frequently requesting feedback and criticism from family and friends to gain insight into user experience and preferences`
+      + `${b('Vite')}, and ${b('ESLint')} to create an engaging and unique portfolio, frequently requesting feedback and criticism from family and friends to gain insight into user experience and preferences`,
     ]) + date(2025),
 
     images: [],
@@ -88,10 +88,51 @@ export const projectDefinitions = [
       TAGS.REACT,
     ],
     iconPath: 'projects/portfolio/icon.svg',
-    modelPath: undefined,
+    modelPath: undefined, // TODO
 
     planetSize: 30,
     placeholderModelSize: 0.1,
     orbitRadius: 0.01,
+  },
+
+  {
+    name: 'MAC',
+    description: heading('Marine Autonomy Challenge') + bulletPoints(['6-month challenge to create an autonomous software system controlling a small catamaran, in a team of 5',
+      `Used ${b('Python')} to send commands and receive sensor data and video across serial port, ${b('TCP')}, and ${b('UDP')} connections to achieve autonomous navigation, obstacle avoidance, berthing, and object recognition and position estimation`,
+      `Constructed communication API for the team to use, a robust obstacle avoidance system, used ${b('YOLOv11')} to identify objects and calculate their positions from live video, and assisted with ${b('PyQt')} GUI and navigation system implementation`,
+      'Won first place, experienced working with other disciplines, improved understanding of communication methods, solved challenging problems, and strengthened software architecture skills',
+    ]) + date('2024-2025'),
+
+    images: [], // TODO
+    tags: [
+      TAGS.PYTHON,
+      TAGS.PYQT,
+    ],
+    iconPath: 'projects/mac/icon.svg',
+    modelPath: undefined, // TODO
+
+    planetSize: 5,
+    orbitRadius: 120,
+    orbitStartingAngle: 180,
+  },
+
+  {
+    name: 'MIP',
+    description: heading('Modpack Installer Python') + bulletPoints([
+      'Completed over a few days to guide people through installing a Minecraft mod-pack, simplifying the process, due to manual installation being complex and existing solutions being bloated',
+      `Implemented in ${b('Python')}, featuring a ${b('tkinter')} GUI, and added thorough exception handling to provide clear feedback to users; deployed for MacOS and Windows via ${b('PyInstaller')}, hosted on MEGA`,
+      'Updated based on feedback to support multi-drive computers; software performed as intended',
+    ]) + date(2024),
+
+    images: [], // TODO
+    tags: [
+      TAGS.PYTHON,
+    ],
+    iconPath: 'projects/mip/icon.svg',
+    modelPath: undefined,
+
+    planetSize: 5,
+    orbitRadius: 160,
+    orbitStartingAngle: 30,
   },
 ];
