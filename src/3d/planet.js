@@ -58,7 +58,7 @@ export class Planet {
     }
     else {
       console.warn(`Missing model path, generating placeholder for ${config.name}.`);
-      const geometry = new THREE.TetrahedronGeometry(config.defaultModelSize || config.planetSize, 3);
+      const geometry = new THREE.TetrahedronGeometry(config.placeholderModelSize || config.planetSize, 3);
       const material = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
       const tetrahedron = new THREE.Mesh(geometry, material);
       this.onPlanetModelLoaded({ scene: tetrahedron });

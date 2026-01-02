@@ -9,3 +9,9 @@
 .project-last-list-item {
   padding-bottom: 0;
 }
+
+.project-date {
+  float: right;
+  color: lightgray;
+  font-style: italic;
+}

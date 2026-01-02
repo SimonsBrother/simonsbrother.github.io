@@ -13,6 +13,21 @@ function bulletPoints(textList) {
 }
 
 /**
+ * Returns the text in bold.
+ */
+function b(text) {
+  return `<b>${text}</b>`;
+}
+
+/**
+ * Creates a styled date
+ * @param {number} year
+ */
+function date(year) {
+  return `<span class="project-date">${year}</span>`;
+}
+
+/**
  * Project definitions
  * @type {[
  * { name: string,
@@ -35,9 +50,9 @@ export const projectDefinitions = [
     name: 'BroadbandBug',
     description: bulletPoints([
       'Designed a tool for detecting broadband problems by monitoring broadband upload and download speed',
-      'Built in Python, timestamped broadband speed recordings were saved in a file and plotted on a matplotlib graph',
+      `Built in ${b('Python')}, timestamped broadband speed recordings were saved in a file and plotted on a ${b('matplotlib')} graph`,
       'Proved clients’ broadband unreliability, obliging the ISP to investigate disputes',
-    ]),
+    ]) + date(2020),
 
     images: [
       { url: 'projects/broadbandbug/1.png', altText: 'Example output; this graph shows the download speed is consistently no more than 14, and drops out frequently. There is a serious problem with the X axis labelling!' },
@@ -54,6 +69,29 @@ export const projectDefinitions = [
     planetSize: 5,
     orbitRadius: 80,
     orbitStartingAngle: 0,
-    orbitSpeed: 1,
+    orbitSpeed: 5,
+  },
+
+  {
+    name: 'Portfolio',
+    description: bulletPoints([
+      'Designed and developed a personal website for showcasing programming projects',
+      `Utilised ${b('HTML')}, ${b('CSS')}, ${b('JavaScript')}, ${b('React')}, ${b('Three.JS')}, `
+      + `${b('Vite')}, and ${b('ESLint')} to create an engaging and unique portfolio, frequently requesting feedback and criticism from family and friends to gain insight into user experience and preferences`
+    ]) + date(2025),
+
+    images: [],
+    tags: [
+      TAGS.HTML,
+      TAGS.CSS,
+      TAGS.JAVASCRIPT,
+      TAGS.REACT,
+    ],
+    iconPath: 'projects/portfolio/icon.svg',
+    modelPath: undefined,
+
+    planetSize: 30,
+    placeholderModelSize: 0.1,
+    orbitRadius: 0.01,
   },
 ];

@@ -104,7 +104,7 @@ export function setupPointer(camera) {
     focusOnObjectIfValid(closestPlanet.model);
   };
 
-  document.addEventListener(EVENTS.PLANETS_LOADED, () => {
+  document.addEventListener(EVENTS.INTRO_COMPLETE, () => {
     const canvas = document.querySelector('#threejs-canvas');
     canvas.addEventListener('mousedown', onInteraction);
     canvas.addEventListener('touchstart', onInteraction);
