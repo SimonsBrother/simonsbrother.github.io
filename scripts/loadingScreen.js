@@ -38,6 +38,7 @@ function setupLoading() {
       onLoadingComplete(element);
     });
     loadingScreen.style.opacity = 0;
+    loadingScreen.style.pointerEvents = 'none';
   });
 
   function onLoadingComplete(element) {
