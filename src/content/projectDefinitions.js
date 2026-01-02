@@ -13,6 +13,7 @@ function bulletPoints(textList) {
 }
 
 /**
+ * Project definitions
  * @type {[
  * { name: string,
  *   description: string,

@@ -23,6 +23,7 @@ else onDOMContentLoaded();
 function onDOMContentLoaded() {
   setupComponents(scrollSystem);
   setupBorders();
+  document.addEventListener('touchend', () => onWindowResized(renderer, camera));
 }
 
 // Foundation
