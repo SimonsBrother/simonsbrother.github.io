@@ -67,7 +67,6 @@ export const projectContent = [
       TAGS.PERSONAL,
     ],
     iconPath: 'projects/portfolio/icon.svg',
-    modelPath: undefined, // TODO
 
     planetSize: 30,
     placeholderModelSize: 0.1,
@@ -108,7 +107,13 @@ export const projectContent = [
       'Won first place, experienced working with other disciplines, improved understanding of communication methods, solved challenging problems, and strengthened software architecture skills',
     ]) + date('2024-25'),
 
-    images: [], // TODO
+    images: [
+      { url: 'projects/mac/c1.JPG', altText: 'Navigating waypoints.' },
+      { url: 'projects/mac/c2.JPG', altText: 'Avoiding obstacles.' },
+      { url: 'projects/mac/c4.JPG', altText: 'Mapping pollution.' },
+      { url: 'projects/mac/c5.JPG', altText: 'Locating the position and type of objects.' },
+      { url: 'projects/mac/boat.jpeg', altText: 'A (far away) picture of the boat.' },
+    ],
     tags: [
       TAGS.PYTHON,
       TAGS.GUI,
