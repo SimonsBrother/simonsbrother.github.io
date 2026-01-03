@@ -133,12 +133,11 @@ export class Planet {
 
   /**
    * Gets the global position of the planet, taking into account the orbit centre.
+   * @param vec3 {THREE.Vector3} vector to store the result.
    * @return {THREE.Vector3} the global position of the planet
    */
-  get globalPos() {
-    const modelPos = this.model.position.clone();
-    modelPos.y += this.orbitCentre.y;
-    return modelPos;
+  getGlobalPos(vec3) {
+    return this.model.getWorldPosition(vec3);
   }
 
   static baseOrbitLineWidth = 0.03;

@@ -42,7 +42,7 @@ addPlanets(scene);
 addBlackHole(scene, camera);
 
 // UI
-setupPointer(camera);
+setupPointer(camera, scene);
 setupFocusing(camera, controls);
 setupDoubleClickUnfocus();
 setupCameraAnimation(camera, controls);

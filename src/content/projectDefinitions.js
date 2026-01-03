@@ -69,7 +69,7 @@ export const projectDefinitions = [
     planetSize: 5,
     orbitRadius: 80,
     orbitStartingAngle: 0,
-    orbitSpeed: 5,
+    orbitSpeed: 7,
   },
 
   {
@@ -101,12 +101,12 @@ export const projectDefinitions = [
       `Used ${b('Python')} to send commands and receive sensor data and video across serial port, ${b('TCP')}, and ${b('UDP')} connections to achieve autonomous navigation, obstacle avoidance, berthing, and object recognition and position estimation`,
       `Constructed communication API for the team to use, a robust obstacle avoidance system, used ${b('YOLOv11')} to identify objects and calculate their positions from live video, and assisted with ${b('PyQt')} GUI and navigation system implementation`,
       'Won first place, experienced working with other disciplines, improved understanding of communication methods, solved challenging problems, and strengthened software architecture skills',
-    ]) + date('2024-2025'),
+    ]) + date('2024-25'),
 
     images: [], // TODO
     tags: [
       TAGS.PYTHON,
-      TAGS.PYQT,
+      TAGS.GUI,
     ],
     iconPath: 'projects/mac/icon.svg',
     modelPath: undefined, // TODO
@@ -114,6 +114,7 @@ export const projectDefinitions = [
     planetSize: 5,
     orbitRadius: 120,
     orbitStartingAngle: 180,
+    orbitSpeed: 5,
   },
 
   {
@@ -127,6 +128,7 @@ export const projectDefinitions = [
     images: [], // TODO
     tags: [
       TAGS.PYTHON,
+      TAGS.GUI,
     ],
     iconPath: 'projects/mip/icon.svg',
     modelPath: undefined,
@@ -134,5 +136,30 @@ export const projectDefinitions = [
     planetSize: 5,
     orbitRadius: 160,
     orbitStartingAngle: 30,
+    orbitSpeed: 2,
+  },
+
+  {
+    name: 'MacUp',
+    description: bulletPoints([
+      'Created backup software for copying files from one location to another, with a complex filtering system and GUI',
+      `Developed multiple versions, first in ${b('Python')} with ${b('PyQt5')} and a custom file scanning system,
+      again in ${b('Java')} with ${b('JavaFX')} and Apache Commons IO, and thirdly, another ${b('Python')} version with ${b('tkinter')} using a standard library function for copying (which was submitted as part of the CS50 online course on edX)`,
+    ]) + date('2022-23'),
+
+    images: [],
+    tags: [
+      TAGS.PYTHON,
+      TAGS.JAVA,
+      TAGS.GUI,
+    ],
+    iconPath: 'projects/macup/icon.svg',
+    modelPath: undefined, // TODO,
+
+    planetSize: 5,
+    orbitRadius: 250,
+    orbitStartingAngle: 30,
+    planetRotationSpeed: new THREE.Euler(0.5, 0.5, 0),
+    orbitOrientation: new THREE.Euler(10, 30, 0),
   },
 ];

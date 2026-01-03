@@ -86,7 +86,7 @@ export function addLight(scene) {
   scene.add(ambientLight);
 }
 
-export function setupPointer(camera) {
+export function setupPointer(camera, scene) {
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
 
@@ -99,7 +99,7 @@ export function setupPointer(camera) {
     raycaster.setFromCamera(pointer, camera);
     const { closestPlanet, closestDistance } = findClosestPlanet(raycaster.ray);
     const leniency = Math.sqrt(camera.position.distanceTo(closestPlanet.model.position) / closestPlanet.planetSize) / 2;
-    // makeTestCircle(closestPlanet.planetSize + leniency, closestPlanet.globalPos, scene, 0x00ffff);
+    // makeTestCircle(closestPlanet.planetSize + leniency, closestPlanet.getGlobalPos(new THREE.Vector3()), scene, 0x00ffff);
     if (closestDistance - leniency > closestPlanet.planetSize) return;
     focusOnObjectIfValid(closestPlanet.model);
   };
@@ -120,9 +120,10 @@ export function setupPointer(camera) {
 function findClosestPlanet(ray) {
   let closestPlanet = null;
   let closestDistance = Infinity;
+  const globalPos = new THREE.Vector3();
 
   for (const planet of Planet.planets) {
-    const distanceFromFromPlanetEdgeToRay = ray.distanceToPoint(planet.globalPos) - planet.planetSize;
+    const distanceFromFromPlanetEdgeToRay = ray.distanceToPoint(planet.getGlobalPos(globalPos)) - planet.planetSize;
     if (distanceFromFromPlanetEdgeToRay > closestDistance) continue;
 
     closestDistance = distanceFromFromPlanetEdgeToRay;

@@ -29,6 +29,12 @@ export const tagDefinitions = {
     secondaryColor: '#fff',
     textColor: '#fff',
   },
+  JAVA: {
+    name: 'Java',
+    primaryColor: '#d34237',
+    secondaryColor: '#4e88c1',
+    textColor: '#fff',
+  },
 
   REACT: {
     name: 'React',
@@ -42,8 +48,8 @@ export const tagDefinitions = {
     secondaryColor: '#82b9e5',
     textColor: '#fff',
   },
-  PYQT: {
-    name: 'PyQt',
+  GUI: {
+    name: 'GUI',
     primaryColor: '#56b953',
     secondaryColor: '#fff',
     textColor: '#fff',
