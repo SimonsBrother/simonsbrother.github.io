@@ -23,10 +23,9 @@ export class ProjectImage extends React.Component {
         className={`infobox project-image border ${this.props.focused ? 'focused' : ''}`}
         onClick={() => this.props.onClick(this.props.index)}
         style={{ ...this.props.style, '--scale-factor': this.state.scaleFactor }}
-        data-index={this.props.index}
         ref={this.ref}
       >
-        <img src={this.props.imageUrl} alt={this.props.altText} />
+        <img src={this.props.imageUrl} alt={this.props.altText} data-index={this.props.index} />
       </div>
     );
   }

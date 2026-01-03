@@ -10,8 +10,8 @@ export class ImageContainer extends ScrollableElement {
     super(props);
     this.state = { selectedIndex: null, lastSelected: null, opacity: 1 };
     this.imageRefs = [];
-    document.addEventListener('mousedown', event => this.unfocusImages(event));
-    document.addEventListener('touchstart', event => this.unfocusImages(event));
+    document.addEventListener('mousedown', event => this.onDocumentClicked(event));
+    document.addEventListener('touchstart', event => this.onDocumentClicked(event));
     document.addEventListener(EVENTS.PLANET_CHANGED, () => {
       this.setState({ opacity: 0 });
       setTimeout(() => this.setState({ opacity: 1 }), ANIMATION_TIMES.PLANET_CHANGE_FADE_TIME + 50);
@@ -40,13 +40,6 @@ export class ImageContainer extends ScrollableElement {
     });
   }
 
-  unfocusImages(event) {
-    // If the clicked element is an image, do not unfocus
-    const clickedImageId = event.target.getAttribute('data-index');
-    if (clickedImageId !== null) return;
-    this.setState({ selectedIndex: null, lastSelected: this.state.selectedIndex });
-  }
-
   calculateLowestChildBottom() {
     const { children } = this.scrollableRef.current;
     const lastChildBottom = children[children.length - 1]?.getBoundingClientRect().bottom;
@@ -54,10 +47,12 @@ export class ImageContainer extends ScrollableElement {
     return Math.max(lastChildBottom, secondLastChildBottom);
   }
 
+  // Overrides parent
   get scrollableBottom() {
     return this.calculateLowestChildBottom();
   }
 
+  // Overrides parent
   get scrollLowerLimit() {
     const distanceFromBottom = window.innerHeight - this.calculateLowestChildBottom();
     return this.scroll + distanceFromBottom;
@@ -69,6 +64,13 @@ export class ImageContainer extends ScrollableElement {
     if (selectedIndex !== null) {
       this.imageRefs[selectedIndex].current.onClick();
     }
+  }
+
+  onDocumentClicked(event) {
+    // If the clicked element is an image, do not shrink; let the onImageClicked handler handle it
+    const clickedImageId = event.target.getAttribute('data-index');
+    if (clickedImageId !== null) return;
+    this.setState({ selectedIndex: null, lastSelected: this.state.selectedIndex });
   }
 
   getZIndex(index) {
