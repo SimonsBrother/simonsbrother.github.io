@@ -73,7 +73,7 @@ export const tagDefinitions = {
     secondaryColor: '#000',
     textColor: '#fff',
   },
-  Coursework: {
+  COURSEWORK: {
     name: 'Coursework',
     primaryColor: '#f00',
     secondaryColor: '#000',

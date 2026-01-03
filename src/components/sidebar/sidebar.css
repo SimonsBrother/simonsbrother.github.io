@@ -40,6 +40,12 @@
   position: absolute;
   inset: 5px;
 }
+.sidebar-search::placeholder {
+  color: #eee;
+}
+.sidebar-search:hover {
+  border-color: white;
+}
 
 @media only screen and (max-width: 600px) {
   .sidebar {

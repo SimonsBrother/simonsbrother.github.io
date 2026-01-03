@@ -86,6 +86,7 @@ export const projectDefinitions = [
       TAGS.CSS,
       TAGS.JAVASCRIPT,
       TAGS.REACT,
+      TAGS.PERSONAL,
     ],
     iconPath: 'projects/portfolio/icon.svg',
     modelPath: undefined, // TODO
@@ -107,6 +108,7 @@ export const projectDefinitions = [
     tags: [
       TAGS.PYTHON,
       TAGS.GUI,
+      TAGS.TEAMWORK,
     ],
     iconPath: 'projects/mac/icon.svg',
     modelPath: undefined, // TODO
@@ -129,6 +131,7 @@ export const projectDefinitions = [
     tags: [
       TAGS.PYTHON,
       TAGS.GUI,
+      TAGS.PERSONAL,
     ],
     iconPath: 'projects/mip/icon.svg',
     modelPath: undefined,
@@ -153,6 +156,7 @@ export const projectDefinitions = [
       TAGS.PYTHON,
       TAGS.GUI,
       TAGS.SQL,
+      TAGS.COURSEWORK,
     ],
     iconPath: 'projects/sss/icon.svg',
     modelPath: undefined, // TODO,
@@ -195,6 +199,7 @@ export const projectDefinitions = [
       TAGS.PYTHON,
       TAGS.JAVA,
       TAGS.GUI,
+      TAGS.PERSONAL,
     ],
     iconPath: 'projects/macup/icon.svg',
     modelPath: undefined, // TODO,
