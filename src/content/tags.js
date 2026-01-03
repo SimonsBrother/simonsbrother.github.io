@@ -60,6 +60,12 @@ export const tagDefinitions = {
     secondaryColor: '#fff',
     textColor: '#fff',
   },
+  SELENIUM: {
+    name: 'Selenium',
+    primaryColor: '#5e5e5e',
+    secondaryColor: '#25491f',
+    textColor: '#fff',
+  },
 
   PERSONAL: {
     name: 'Personal',

@@ -163,6 +163,26 @@ export const projectDefinitions = [
   },
 
   {
+    name: 'CCTV Setup',
+    description: bulletPoints([
+      `Responsible for setup of CCTV network cameras and servers, conferring familiarity with ${b('networks')}`,
+      `Designed bespoke tools in ${b('Python')} to automate repetitive setup procedures, streamlining workload and eliminating human error, by combining ${b('openpyxl')} to load spreadsheet data and ${b('PyAutoGUI')} and ${b('Selenium')} to execute tasks`,
+    ]) + date('2021-22'),
+
+    images: [],
+    tags: [
+      TAGS.PYTHON,
+      TAGS.SELENIUM,
+    ],
+    iconPath: 'projects/cctvsetup/icon.svg',
+    modelPath: undefined, // TODO,
+
+    planetSize: 5,
+    orbitRadius: 190,
+    orbitStartingAngle: 210,
+  },
+
+  {
     name: 'MacUp',
     description: bulletPoints([
       'Created backup software for copying files from one location to another, with a complex filtering system and GUI',
