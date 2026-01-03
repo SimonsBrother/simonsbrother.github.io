@@ -21,6 +21,11 @@
   pointer-events: none;
 }
 
+.border.project-image::before {
+  border-radius: 0.2vmax;
+  inset: -0.08vmax;
+}
+
 .border {
   border-radius: 1vmax;
 }

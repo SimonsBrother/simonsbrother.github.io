@@ -49,7 +49,7 @@ function github(link) {
  *   orbitCentre: THREE.Vector3 },
  * ]}
  */
-export const projectDefinitions = [
+export const projectContent = [
   {
     name: 'Portfolio',
     description: bulletPoints([
@@ -131,7 +131,13 @@ export const projectDefinitions = [
       `Gained experience in communication, ${b('agile')} development, and designing software as a team; project graded ${b('89%')}`,
     ]) + date('2024-25'),
 
-    images: [], // TODO
+    images: [
+      { url: 'projects/ekhayago/game1.png', altText: 'The game board and main interface.' },
+      { url: 'projects/ekhayago/game2.png', altText: 'The game setup page, where the number of players and their names can be set.' },
+      { url: 'projects/ekhayago/game3.png', altText: 'After landing on a task square; tasks must be completed in a sequence to win the game.' },
+      { url: 'projects/ekhayago/sprintsheet1.png', altText: 'The spreadsheet used for sprint planning; this shows an overview of sprints and metrics surrounding them.' },
+      { url: 'projects/ekhayago/sprintsheet2.png', altText: 'The spreadsheet used for sprint planning; this shows a sprint, and the stories that people are taking on.' },
+    ],
     tags: [
       TAGS.JAVA,
       TAGS.GUI,

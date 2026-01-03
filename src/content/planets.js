@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { Planet } from '../3d/planet';
 import { loading } from '../3d/loadingState';
 import { tagDefinitions as TAGS } from './tags';
-import { projectDefinitions } from './projectDefinitions';
+import { projectContent } from './projectContent';
 
 const testPlanetDefinitions = [
   {
@@ -92,7 +92,7 @@ const testPlanetDefinitions = [
   },
 ];
 
-export const planetDefinitions = projectDefinitions;
+export const planetDefinitions = projectContent;
 
 const test = false;
 if (test) {
