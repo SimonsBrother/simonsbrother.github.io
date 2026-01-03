@@ -35,6 +35,12 @@ export const tagDefinitions = {
     secondaryColor: '#4e88c1',
     textColor: '#fff',
   },
+  SQL: {
+    name: 'SQL',
+    primaryColor: '#ffffff',
+    secondaryColor: '#000000',
+    textColor: '#fff',
+  },
 
   REACT: {
     name: 'React',

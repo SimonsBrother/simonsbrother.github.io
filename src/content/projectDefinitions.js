@@ -140,6 +140,29 @@ export const projectDefinitions = [
   },
 
   {
+    name: 'SSS',
+    description: heading('Sensible Substitution System') + bulletPoints([
+      'Designed an online grocery substitution system to automatically determine sensible substitutes to send customers',
+      'Identified a problem, gathered requirements from stakeholders, designed, implemented, tested, and evaluated a solution for A-Level coursework',
+      `Implemented in ${b('Python')}, the system compared similar products via price, serving size, and manually assigned attributes; tested via a ${b('SQLite')} database simulating a supermarket and ${b('PyQt5')} GUI`,
+      `Surveyed 96 people with 90% of proposed substitutions acceptable, received an examined mark of 62/70 (89%)`,
+    ]) + date('2022-23'),
+
+    images: [],
+    tags: [
+      TAGS.PYTHON,
+      TAGS.GUI,
+      TAGS.SQL,
+    ],
+    iconPath: 'projects/sss/icon.svg',
+    modelPath: undefined, // TODO,
+
+    planetSize: 5,
+    orbitRadius: 190,
+    orbitStartingAngle: 30,
+  },
+
+  {
     name: 'MacUp',
     description: bulletPoints([
       'Created backup software for copying files from one location to another, with a complex filtering system and GUI',
