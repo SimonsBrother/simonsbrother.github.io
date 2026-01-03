@@ -18,6 +18,7 @@
     #aaaaaa 15%,
     #fff 100%
   );
+  pointer-events: none;
 }
 
 .border {

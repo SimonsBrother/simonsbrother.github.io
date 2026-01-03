@@ -20,3 +20,8 @@
   text-align: center;
   margin-inline: auto;
 }
+
+.project-github {
+  pointer-events: auto;
+  color: inherit;
+}

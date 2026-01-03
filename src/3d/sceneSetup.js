@@ -91,6 +91,8 @@ export function setupPointer(camera, scene) {
   const pointer = new THREE.Vector2();
 
   const onInteraction = (event) => {
+    // If mouse button pressed, it must be left click, so that only left click triggers focus (to allow user to pan out)
+    if (event instanceof MouseEvent && event.button !== 0) return;
     const { clientX, clientY } = getClientCoords(event);
     // Normalise to -1 and +1
     pointer.x = (clientX / window.innerWidth) * 2 - 1;
@@ -106,7 +108,10 @@ export function setupPointer(camera, scene) {
 
   document.addEventListener(EVENTS.INTRO_COMPLETE, () => {
     const canvas = document.querySelector('#threejs-canvas');
-    canvas.addEventListener('mousedown', onInteraction);
+    canvas.addEventListener('mousedown', (mouseEvent) => {
+      if (mouseEvent.button !== 0) return; // Only focus
+      onInteraction(mouseEvent);
+    });
     canvas.addEventListener('touchstart', onInteraction);
   }, { once: true });
 }

@@ -27,6 +27,10 @@ function heading(text) {
   return `<h2 class="project-heading">${text}</h2>`;
 }
 
+function github(link) {
+  return `<a class="project-github" href="${link}" target="_blank">GitHub</a>`;
+}
+
 /**
  * Project definitions
  * @type {[
@@ -47,12 +51,36 @@ function heading(text) {
  */
 export const projectDefinitions = [
   {
+    name: 'Portfolio',
+    description: bulletPoints([
+      'Designed and developed a personal website for showcasing programming projects',
+      `Utilised ${b('HTML')}, ${b('CSS')}, ${b('JavaScript')}, ${b('React')}, ${b('Three.JS')}, `
+      + `${b('Vite')}, and ${b('ESLint')} to create an engaging and unique portfolio, frequently requesting feedback and criticism from family and friends to gain insight into user experience and preferences`,
+    ]) + github('https://github.com/calebhair/calebhair.github.io') + date(2025),
+
+    images: [],
+    tags: [
+      TAGS.HTML,
+      TAGS.CSS,
+      TAGS.JAVASCRIPT,
+      TAGS.REACT,
+      TAGS.PERSONAL,
+    ],
+    iconPath: 'projects/portfolio/icon.svg',
+    modelPath: undefined, // TODO
+
+    planetSize: 30,
+    placeholderModelSize: 0.1,
+    orbitRadius: 0.01,
+  },
+
+  {
     name: 'BroadbandBug',
     description: bulletPoints([
       'Designed a tool for detecting broadband problems by monitoring broadband upload and download speed',
       `Built in ${b('Python')}, timestamped broadband speed recordings were saved in a file and plotted on a ${b('matplotlib')} graph`,
       'Proved clients’ broadband unreliability, obliging the ISP to investigate disputes',
-    ]) + date(2020),
+    ]) + github('https://github.com/calebhair/BroadbandBug') + date(2020),
 
     images: [
       { url: 'projects/broadbandbug/1.png', altText: 'Example output; this graph shows the download speed is consistently no more than 14, and drops out frequently. There is a serious problem with the X axis labelling!' },
@@ -73,32 +101,8 @@ export const projectDefinitions = [
   },
 
   {
-    name: 'Portfolio',
-    description: bulletPoints([
-      'Designed and developed a personal website for showcasing programming projects',
-      `Utilised ${b('HTML')}, ${b('CSS')}, ${b('JavaScript')}, ${b('React')}, ${b('Three.JS')}, `
-      + `${b('Vite')}, and ${b('ESLint')} to create an engaging and unique portfolio, frequently requesting feedback and criticism from family and friends to gain insight into user experience and preferences`,
-    ]) + date(2025),
-
-    images: [],
-    tags: [
-      TAGS.HTML,
-      TAGS.CSS,
-      TAGS.JAVASCRIPT,
-      TAGS.REACT,
-      TAGS.PERSONAL,
-    ],
-    iconPath: 'projects/portfolio/icon.svg',
-    modelPath: undefined, // TODO
-
-    planetSize: 30,
-    placeholderModelSize: 0.1,
-    orbitRadius: 0.01,
-  },
-
-  {
     name: 'MAC',
-    description: heading('Marine Autonomy Challenge') + bulletPoints(['6-month challenge to create an autonomous software system controlling a small catamaran, in a team of 5',
+    description: heading('Marine Autonomy Challenge') + bulletPoints(['6-month challenge to create an autonomous software system controlling a small catamaran, in a team of five',
       `Used ${b('Python')} to send commands and receive sensor data and video across serial port, ${b('TCP')}, and ${b('UDP')} connections to achieve autonomous navigation, obstacle avoidance, berthing, and object recognition and position estimation`,
       `Constructed communication API for the team to use, a robust obstacle avoidance system, used ${b('YOLOv11')} to identify objects and calculate their positions from live video, and assisted with ${b('PyQt')} GUI and navigation system implementation`,
       'Won first place, experienced working with other disciplines, improved understanding of communication methods, solved challenging problems, and strengthened software architecture skills',
@@ -114,8 +118,32 @@ export const projectDefinitions = [
     modelPath: undefined, // TODO
 
     planetSize: 5,
-    orbitRadius: 120,
+    orbitRadius: 100,
     orbitStartingAngle: 180,
+    orbitSpeed: 5,
+  },
+
+  {
+    name: 'Ekhaya Go',
+    description: bulletPoints([
+      'Worked with six other students in coursework to design an end-to-end solution for a real-world problem situated in Makers Valley, Johannesburg, South Africa, followed by creating a gamification of our solution',
+      `Provided guidance and criticism on solutions, diagrams, and software design; expanded on solution execution; collaborated to create ${b('user stories')}, with a custom ${b('sprint')} tracking spreadsheet system to evaluate progress; implemented ${b('Java')} classes, created ${b('Swing')} GUI dialogs, ${b('pair programmed')}; assisted with poster design and ${b('JUnit')} testing`,
+      `Gained experience in communication, ${b('agile')} development, and designing software as a team; project graded ${b('89%')}`,
+    ]) + date('2024-25'),
+
+    images: [], // TODO
+    tags: [
+      TAGS.JAVA,
+      TAGS.GUI,
+      TAGS.TEAMWORK,
+      TAGS.COURSEWORK,
+    ],
+    iconPath: 'projects/ekhayago/icon.svg',
+    modelPath: undefined, // TODO
+
+    planetSize: 5,
+    orbitRadius: 120,
+    orbitStartingAngle: 300,
     orbitSpeed: 5,
   },
 
@@ -125,7 +153,7 @@ export const projectDefinitions = [
       'Completed over a few days to guide people through installing a Minecraft mod-pack, simplifying the process, due to manual installation being complex and existing solutions being bloated',
       `Implemented in ${b('Python')}, featuring a ${b('tkinter')} GUI, and added thorough exception handling to provide clear feedback to users; deployed for MacOS and Windows via ${b('PyInstaller')}, hosted on MEGA`,
       'Updated based on feedback to support multi-drive computers; software performed as intended',
-    ]) + date(2024),
+    ]) + github('https://github.com/calebhair/ModpackInstallerPy') + date(2024),
 
     images: [], // TODO
     tags: [
@@ -137,7 +165,7 @@ export const projectDefinitions = [
     modelPath: undefined,
 
     planetSize: 5,
-    orbitRadius: 160,
+    orbitRadius: 140,
     orbitStartingAngle: 30,
     orbitSpeed: 2,
   },
@@ -162,7 +190,7 @@ export const projectDefinitions = [
     modelPath: undefined, // TODO,
 
     planetSize: 5,
-    orbitRadius: 190,
+    orbitRadius: 160,
     orbitStartingAngle: 30,
   },
 
@@ -182,7 +210,7 @@ export const projectDefinitions = [
     modelPath: undefined, // TODO,
 
     planetSize: 5,
-    orbitRadius: 190,
+    orbitRadius: 160,
     orbitStartingAngle: 210,
   },
 
@@ -192,7 +220,7 @@ export const projectDefinitions = [
       'Created backup software for copying files from one location to another, with a complex filtering system and GUI',
       `Developed multiple versions, first in ${b('Python')} with ${b('PyQt5')} and a custom file scanning system,
       again in ${b('Java')} with ${b('JavaFX')} and Apache Commons IO, and thirdly, another ${b('Python')} version with ${b('tkinter')} using a standard library function for copying (which was submitted as part of the CS50 online course on edX)`,
-    ]) + date('2022-23'),
+    ]) + github('https://github.com/calebhair/MacUp') + date('2022-23'),
 
     images: [],
     tags: [
