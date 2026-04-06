@@ -70,9 +70,9 @@ function getScreenResolution() {
 function getBloom() {
   return new UnrealBloomPass(
     getScreenResolution(),
-    0.1,
-    0.1,
     0.5,
+    0.1,
+    0.1,
   );
 }
 

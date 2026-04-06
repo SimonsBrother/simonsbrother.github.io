@@ -24,12 +24,12 @@ export const WARPED_DISK_SCALE = { xScale: 5, yScale: 3.5, offsetScale: 1.5, xyS
 // };
 
 export const materialGradient = {
-  [BLACK_HOLE_RADIUS]: { color: 0xffffff },
-  30: { color: 0xffff99 },
-  80: { color: 0xffaa00 },
-  95: { color: 0x884411 },
-  120: { color: 0xaaaaaa, easeFunction: easeOutExpo },
-  185: { color: 0x666666 },
+  [BLACK_HOLE_RADIUS]: { color: 0xdedede },
+  30: { color: 0xb8a38a },
+  90: { color: 0xb86d00, easeFunction: easeOutExpo },
+  95: { color: 0x7f6d5b },
+  120: { color: 0x868686, easeFunction: easeOutExpo },
+  185: { color: 0x595959 },
   [ACCRETION_WIDTH]: { color: 0x333333 },
 };
 
