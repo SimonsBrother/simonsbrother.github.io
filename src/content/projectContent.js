@@ -150,7 +150,7 @@ export const projectContent = [
       TAGS.COURSEWORK,
     ],
     iconPath: 'projects/ekhayago/icon.svg',
-    modelPath: undefined, // TODO
+    modelPath: 'projects/ekhayago/EkhayaGo.glb',
 
     planetSize: 5,
     orbitRadius: 120,
@@ -162,11 +162,15 @@ export const projectContent = [
     name: 'MIP',
     description: heading('Modpack Installer Python') + bulletPoints([
       'Completed over a few days to guide people through installing a Minecraft mod-pack, simplifying the process, due to manual installation being complex and existing solutions being bloated',
-      `Implemented in ${b('Python')}, featuring a ${b('tkinter')} GUI, and added thorough exception handling to provide clear feedback to users; deployed for MacOS and Windows via ${b('PyInstaller')}, hosted on MEGA`,
+      `Implemented in ${b('Python')}, featuring a ${b('tkinter')} GUI, automated backups, and added thorough exception handling to provide clear feedback to users; deployed for MacOS and Windows via ${b('PyInstaller')}, hosted on MEGA`,
       'Updated based on feedback to support multi-drive computers; software performed as intended',
     ]) + github('https://github.com/calebhair/ModpackInstallerPy') + date(2024),
 
-    images: [], // TODO
+    images: [
+      { url: 'projects/mip/img1.png', altText: 'The introduction window.' },
+      { url: 'projects/mip/img2.png', altText: 'Detailed instructions, so the user knows exactly what to expect.' },
+      { url: 'projects/mip/img3.png', altText: 'If a modpack was replaced, it would be backed up. This completion popup shows the user where they can remove them.' },
+    ],
     tags: [
       TAGS.PYTHON,
       TAGS.GUI,
