@@ -177,7 +177,7 @@ export const projectContent = [
       TAGS.PERSONAL,
     ],
     iconPath: 'projects/mip/icon.svg',
-    modelPath: undefined,
+    modelPath: 'projects/mip/model.glb',
 
     planetSize: 5,
     orbitRadius: 140,
