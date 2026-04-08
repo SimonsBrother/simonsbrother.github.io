@@ -91,7 +91,7 @@ export const projectContent = [
       TAGS.PERSONAL,
     ],
     iconPath: 'projects/broadbandbug/icon.svg',
-    modelPath: undefined, // TODO
+    modelPath: 'projects/broadbandbug/model.glb',
 
     planetSize: 5,
     orbitRadius: 80,
