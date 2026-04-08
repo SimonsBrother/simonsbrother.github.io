@@ -222,7 +222,7 @@ export const projectContent = [
       TAGS.SELENIUM,
     ],
     iconPath: 'projects/cctvsetup/icon.svg',
-    modelPath: undefined, // TODO,
+    modelPath: 'projects/cctvsetup/model.glb',
 
     planetSize: 5,
     orbitRadius: 160,
