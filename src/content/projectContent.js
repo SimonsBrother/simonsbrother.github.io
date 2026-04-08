@@ -202,7 +202,7 @@ export const projectContent = [
       TAGS.COURSEWORK,
     ],
     iconPath: 'projects/sss/icon.svg',
-    modelPath: undefined, // TODO,
+    modelPath: 'projects/sss/model.glb',
 
     planetSize: 5,
     orbitRadius: 160,
