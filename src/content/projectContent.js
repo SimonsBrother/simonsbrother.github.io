@@ -74,24 +74,19 @@ export const projectContent = [
   },
 
   {
-    name: 'BroadbandBug',
+    name: 'CCTV Setup',
     description: bulletPoints([
-      'Designed a tool for detecting broadband problems by monitoring broadband upload and download speed',
-      `Built in ${b('Python')}, timestamped broadband speed recordings were saved in a file and plotted on a ${b('matplotlib')} graph`,
-      'Proved clients’ broadband unreliability, obliging the ISP to investigate disputes',
-    ]) + github('https://github.com/calebhair/BroadbandBug') + date(2020),
+      `Responsible for setup of CCTV network cameras and servers, conferring familiarity with ${b('networks')}`,
+      `Designed bespoke tools in ${b('Python')} to automate repetitive setup procedures, streamlining workload and eliminating human error, by combining ${b('openpyxl')} to load spreadsheet data and ${b('PyAutoGUI')} and ${b('Selenium')} to execute tasks`,
+    ]) + date('2021-22'),
 
-    images: [
-      { url: 'projects/broadbandbug/1.png', altText: 'Example output; this graph shows the download speed is consistently no more than 14, and drops out frequently. There is a serious problem with the X axis labelling!' },
-      { url: 'projects/broadbandbug/2.png', altText: 'A very large collection of readings. The broadband continually drops out throughout the day.' },
-    ],
+    images: [],
     tags: [
       TAGS.PYTHON,
-      TAGS.MATPLOTLIB,
-      TAGS.PERSONAL,
+      TAGS.SELENIUM,
     ],
-    iconPath: 'projects/broadbandbug/icon.svg',
-    modelPath: 'projects/broadbandbug/model.glb',
+    iconPath: 'projects/cctvsetup/icon.svg',
+    modelPath: 'projects/cctvsetup/model.glb',
 
     planetSize: 5,
     orbitRadius: 80,
@@ -210,19 +205,24 @@ export const projectContent = [
   },
 
   {
-    name: 'CCTV Setup',
+    name: 'BroadbandBug',
     description: bulletPoints([
-      `Responsible for setup of CCTV network cameras and servers, conferring familiarity with ${b('networks')}`,
-      `Designed bespoke tools in ${b('Python')} to automate repetitive setup procedures, streamlining workload and eliminating human error, by combining ${b('openpyxl')} to load spreadsheet data and ${b('PyAutoGUI')} and ${b('Selenium')} to execute tasks`,
-    ]) + date('2021-22'),
+      'Designed a tool for detecting broadband problems by monitoring broadband upload and download speed',
+      `Built in ${b('Python')}, timestamped broadband speed recordings were saved in a file and plotted on a ${b('matplotlib')} graph`,
+      'Proved clients’ broadband unreliability, obliging the ISP to investigate disputes',
+    ]) + github('https://github.com/calebhair/BroadbandBug') + date(2020),
 
-    images: [],
+    images: [
+      { url: 'projects/broadbandbug/1.png', altText: 'Example output; this graph shows the download speed is consistently no more than 14, and drops out frequently. There is a serious problem with the X axis labelling!' },
+      { url: 'projects/broadbandbug/2.png', altText: 'A very large collection of readings. The broadband continually drops out throughout the day.' },
+    ],
     tags: [
       TAGS.PYTHON,
-      TAGS.SELENIUM,
+      TAGS.MATPLOTLIB,
+      TAGS.PERSONAL,
     ],
-    iconPath: 'projects/cctvsetup/icon.svg',
-    modelPath: 'projects/cctvsetup/model.glb',
+    iconPath: 'projects/broadbandbug/icon.svg',
+    modelPath: 'projects/broadbandbug/model.glb',
 
     planetSize: 5,
     orbitRadius: 160,
