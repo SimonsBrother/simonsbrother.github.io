@@ -93,8 +93,10 @@ export function addLight(scene) {
 export function setupPointer(camera, scene) {
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
+  let lastPressedObject = null;
 
-  const onInteraction = (event) => {
+  // Returns the object that the user interacted with, or null if there is no valid object
+  const getInteractedObject = (event) => {
     // If mouse button pressed, it must be left click, so that only left click triggers focus (to allow user to pan out)
     if (event instanceof MouseEvent && event.button !== 0) return;
     const { clientX, clientY } = getClientCoords(event);
@@ -107,16 +109,26 @@ export function setupPointer(camera, scene) {
     const leniency = Math.sqrt(camera.position.distanceTo(closestPlanet.model.position) / closestPlanet.planetSize) / 2;
     // makeTestCircle(closestPlanet.planetSize + leniency, closestPlanet.getGlobalPos(new THREE.Vector3()), scene, 0x00ffff);
     if (closestDistance - leniency > closestPlanet.planetSize) return;
-    focusOnObjectIfValid(closestPlanet.model);
+    return closestPlanet.model;
+  };
+
+  // Requires both a press and release on the same object to trigger focus
+  const onPress = (event) => {
+    lastPressedObject = getInteractedObject(event);
+  };
+  const onRelease = (event) => {
+    const releasedObject = getInteractedObject(event);
+    if (releasedObject && releasedObject === lastPressedObject) {
+      focusOnObjectIfValid(releasedObject);
+    }
   };
 
   document.addEventListener(EVENTS.INTRO_COMPLETE, () => {
     const canvas = document.querySelector('#threejs-canvas');
-    canvas.addEventListener('mousedown', (mouseEvent) => {
-      if (mouseEvent.button !== 0) return; // Only focus
-      onInteraction(mouseEvent);
-    });
-    canvas.addEventListener('touchstart', onInteraction);
+    canvas.addEventListener('mouseup', onRelease);
+    canvas.addEventListener('touchend', onRelease);
+    canvas.addEventListener('mousedown', onPress);
+    canvas.addEventListener('touchstart', onPress);
   }, { once: true });
 }
 

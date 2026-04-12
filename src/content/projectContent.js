@@ -68,8 +68,8 @@ export const projectContent = [
     ],
     iconPath: 'projects/portfolio/icon.svg',
 
-    planetSize: 30,
-    placeholderModelSize: 0.1,
+    planetSize: 20,
+    placeholderModelSize: 0.01,
     orbitRadius: 0.01,
   },
 
