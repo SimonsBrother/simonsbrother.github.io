@@ -14,6 +14,7 @@ import { addTextAccretionDisk } from './3d/quasar/textAccretionDisk';
 import { loading } from './3d/loadingState';
 import { ConditionalScrollSystem } from './components/scrollSystem/conditionalScrollSystem';
 import { setupBorders } from './components/globalstyles/borders';
+import { EVENTS } from './constants';
 
 // Prioritised
 const scrollSystem = new ConditionalScrollSystem();
@@ -44,7 +45,9 @@ addBlackHole(scene, camera);
 // UI
 setupPointer(camera, scene);
 setupFocusing(camera, controls);
-setupDoubleClickUnfocus();
+document.addEventListener(EVENTS.INTRO_COMPLETE, () => {
+  setupDoubleClickUnfocus(document);
+});
 setupCameraAnimation(camera, controls);
 setupCameraInitialStateForIntroduction(camera, controls);
 

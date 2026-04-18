@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { clearOutline, setOutlinedObject } from './postProcessing';
-import { smoothlyMoveCamera, animating, sceneOriginPosition } from './cameraAnimation';
+import { smoothlyMoveCamera, animating, sceneOriginPosition, moveToOverviewPos } from './cameraAnimation';
 import { EVENTS } from '../constants';
 
 export let followTarget = null; // The object that the camera will attempt to follow.
@@ -31,11 +31,19 @@ export function setupFocusing(camera_, controls_) {
   controls.addEventListener('change', updateFocus); // Fixes snapping issue
 }
 
-export function setupDoubleClickUnfocus() {
+/**
+ * Sets up double tap listeners to unfocus the camera and re-centre.
+ * @param targetElement the element that can be double tapped.
+ */
+export function setupDoubleClickUnfocus(targetElement) {
   // This works for both double click and double tap
-  document.addEventListener('dblclick', () => {
-    if (!followTarget) return;
-    stopFollowing();
+  targetElement.addEventListener('dblclick', () => {
+    if (followTarget) {
+      stopFollowing();
+    }
+    else {
+      moveToOverviewPos();
+    }
   });
 }
 
