@@ -187,9 +187,13 @@ export const projectContent = [
       'Identified a problem, gathered requirements from stakeholders, designed, implemented, tested, and evaluated a solution for A-Level coursework',
       `Implemented in ${b('Python')}, the system compared similar products via price, serving size, and manually assigned attributes; tested via a ${b('SQLite')} database simulating a supermarket and ${b('PyQt5')} GUI`,
       `Surveyed 96 people with 90% of proposed substitutions acceptable, received an examined mark of 62/70 (89%)`,
-    ]) + date('2022-23'),
+    ]) + github('https://github.com/calebhair/sensubsys') + date('2022-23'),
 
-    images: [],
+    images: [
+      { url: 'projects/sss/img1.png', altText: 'The tag modification window; tags help model key comparative characteristics of products.' },
+      { url: 'projects/sss/img2.png', altText: 'The product creation window; a grocery store database was simulated and populated via this GUI' },
+      { url: 'projects/sss/img3.png', altText: 'A list of products, for simulated testing.' },
+    ],
     tags: [
       TAGS.PYTHON,
       TAGS.GUI,
