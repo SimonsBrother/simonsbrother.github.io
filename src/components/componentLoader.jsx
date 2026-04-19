@@ -3,7 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { NavBtn } from './navBtn/navBtn';
 import { Sidebar } from './sidebar/sidebar';
-import { planetDefinitions } from '../content/planets';
+import { projectContent } from '../default_content/projectContent';
 import { Infoboxes } from './infoboxes/infoboxes';
 import { Tutorial } from './tutorial/tutorial';
 
@@ -14,7 +14,7 @@ export function setupComponents(scrollSystem) {
   const tutorialContainer = createRoot(document.querySelector('.tutorial-container'));
 
   navBtnContainer.render(<NavBtn />);
-  sidebarContainer.render(<Sidebar planetJsonsToShow={planetDefinitions} />);
+  sidebarContainer.render(<Sidebar planetJsonsToShow={projectContent} />);
   projectInfoContainer.render(<Infoboxes scrollSystem={scrollSystem} />);
   tutorialContainer.render(<Tutorial />);
 }

@@ -4,8 +4,8 @@ import { PATHS } from '../../constants';
 import { loading } from '../loadingState';
 import * as QUARKS from 'three.quarks';
 import { addTextAccretionDisk } from './central_object/quasar/textAccretionDisk';
-import { addPlanets } from '../../content/planets';
 import { addBlackHole } from './central_object/quasar/blackHole';
+import { addPlanets } from './planet';
 
 export function setupEnvironment(scene, camera, renderer) {
   addLight(scene);

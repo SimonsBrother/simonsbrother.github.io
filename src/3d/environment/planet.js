@@ -2,6 +2,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 import * as THREE from 'three';
 import { loading } from '../loadingState';
 import { setPlanetsOutline } from './post_processing';
+import { projectContent } from '../../default_content/projectContent';
 
 const loader = new GLTFLoader();
 const timePageLoaded = performance.now();
@@ -167,4 +168,10 @@ function radians(degrees) {
 
 function radiansEulerFromDegreesEuler(euler) {
   return new THREE.Euler(radians(euler.x), radians(euler.y), radians(euler.z));
+}
+
+export function addPlanets(scene) {
+  for (const planetJson of projectContent) {
+    new Planet(scene, planetJson);
+  }
 }

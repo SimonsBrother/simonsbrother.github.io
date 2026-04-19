@@ -1,11 +1,12 @@
 import { EVENTS } from '../constants';
+import { projectContent } from '../default_content/projectContent';
 
 // todo refactor
 
 export const loading = {
   planets: {
     planetsLoaded: 0,
-    totalPlanets: 0,
+    totalPlanets: projectContent.length,
     get progress() {
       return this.planetsLoaded / this.totalPlanets || 0;
     },
