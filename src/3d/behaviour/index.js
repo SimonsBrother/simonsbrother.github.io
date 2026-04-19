@@ -7,7 +7,7 @@ import { runIntroAnimation, setupCameraInitialStateForIntroduction } from './cam
 import { setupAnimationLoop } from './animationLoop';
 import { loading } from '../loadingState';
 
-export function setupBehaviours(scene, camera, renderer, updateAccretionDiskFlows, batchedRenderer, composer) {
+export function setupBehaviours(scene, camera, renderer, centralUpdateFunction, batchedRenderer, composer) {
   const controls = new CustomArcballControls(camera, renderer.domElement, scene);
   setupFocusZooming(renderer.domElement);
   setupPointer(camera, scene);
@@ -19,5 +19,5 @@ export function setupBehaviours(scene, camera, renderer, updateAccretionDiskFlow
   setupCameraInitialStateForIntroduction(camera, controls);
   loading.sceneSetup.progress = 1;
   runIntroAnimation();
-  setupAnimationLoop(renderer, camera, updateAccretionDiskFlows, batchedRenderer, composer);
+  setupAnimationLoop(renderer, camera, centralUpdateFunction, batchedRenderer, composer);
 }

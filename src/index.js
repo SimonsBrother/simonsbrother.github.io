@@ -19,5 +19,5 @@ import { setupEnvironment } from './3d/environment';
 import { setupBehaviours } from './3d/behaviour';
 
 const { scene, renderer, camera } = setupScene();
-const { batchedRenderer, updateAccretionDiskFlows, composer } = setupEnvironment(scene, camera, renderer);
-setupBehaviours(scene, camera, renderer, updateAccretionDiskFlows, batchedRenderer, composer);
+const { batchedRenderer, centralUpdateFunction, composer } = setupEnvironment(scene, camera, renderer);
+setupBehaviours(scene, camera, renderer, centralUpdateFunction, batchedRenderer, composer);

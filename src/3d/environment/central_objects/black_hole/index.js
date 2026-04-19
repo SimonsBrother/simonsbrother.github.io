@@ -1,13 +1,21 @@
 import * as THREE from 'three';
 import { BLACK_HOLE_RADIUS } from './quasarConfig';
 import { loading } from '../../../loadingState';
+import { addTextAccretionDisk } from './text_accretion_disk';
+
+export function addBlackHole(scene, camera) {
+  addBlackHoleMesh(scene, camera);
+  const updateFlows = addTextAccretionDisk(scene);
+
+  return { centralUpdateFunction: updateFlows };
+}
 
 /**
  * Creates a black sphere and adds it to the scene.
  * @param scene the scene to add the black hole to.
  * @param camera the camera, for adding post-processing.
  */
-export function addBlackHole(scene, camera) {
+function addBlackHoleMesh(scene, camera) {
   if (!scene) throw `Bad scene: ${scene}`;
   if (!camera) throw `Bad camera: ${scene}`;
 

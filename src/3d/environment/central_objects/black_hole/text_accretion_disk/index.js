@@ -1,5 +1,5 @@
 import { FontLoader } from 'three/addons';
-import { createTextFlow, updateFlows } from './orbitingText';
+import { createTextFlow, updateFlows } from './textMesh';
 import { consumeAccretionText } from './text';
 import {
   getDepthForDistance,

@@ -3,8 +3,7 @@ import { addPostProcessing } from './post_processing';
 import { PATHS } from '../../constants';
 import { loading } from '../loadingState';
 import * as QUARKS from 'three.quarks';
-import { addTextAccretionDisk } from './central_object/quasar/textAccretionDisk';
-import { addBlackHole } from './central_object/quasar/blackHole';
+import { addBlackHole } from './central_objects/black_hole';
 import { addPlanets } from './planet';
 
 export function setupEnvironment(scene, camera, renderer) {
@@ -12,12 +11,11 @@ export function setupEnvironment(scene, camera, renderer) {
   addCubeMap(scene);
   addPostProcessing(scene, camera, renderer);
   const batchedRenderer = new QUARKS.BatchedRenderer();
-  const updateAccretionDiskFlows = addTextAccretionDisk(scene);
   const composer = addPostProcessing(scene, camera, renderer);
   addPlanets(scene);
-  addBlackHole(scene, camera);
+  const { centralUpdateFunction } = addBlackHole(scene, camera);
 
-  return { batchedRenderer, updateAccretionDiskFlows, composer };
+  return { batchedRenderer, centralUpdateFunction: centralUpdateFunction, composer };
 }
 
 export function addLight(scene) {

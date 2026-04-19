@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { BLACK_HOLE_RADIUS } from './quasarConfig';
+import { BLACK_HOLE_RADIUS } from '../quasarConfig';
 
 let mesh;
 export function addSideAccretionDiskShape(scene) {
