@@ -9,7 +9,7 @@ import {
   accretionDiskConfig6,
   defaultSettings, jetConfig, textDebrisConfig, textDebrisConfigurations,
 } from './configurations';
-import { PATHS } from '../../../constants';
+import { PATHS } from '../../../../../constants';
 
 const particleSystems = [];
 const accretionDiskBaseY = 0;

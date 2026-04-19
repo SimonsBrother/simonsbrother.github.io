@@ -14,7 +14,7 @@ import {
   MIN_WARPED_DISK_RADIUS,
   WIDTH_SCALE_FACTOR,
 } from '../quasarConfig';
-import { loading } from '../../loadingState';
+import { loading } from '../../../../loadingState';
 
 const loader = new FontLoader();
 

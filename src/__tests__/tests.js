@@ -1,7 +1,7 @@
 /**
  * Tests for any simple units of code.
  */
-import {Planet} from "../3d/planet";
+import {Planet} from "../3d/environment/planet";
 import * as THREE from "three";
 
 function runValidationTests(scene) {

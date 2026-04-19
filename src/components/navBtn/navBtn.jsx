@@ -1,5 +1,5 @@
 import React from 'react';
-import { stopFollowing } from '../../3d/focus';
+import { stopFollowing } from '../../3d/behaviour/focus';
 import { EVENTS, NAV_BTN_STATES } from '../../constants';
 
 // The icons to show for each state, where the ID of the state represents the index of the icon name from Google icons

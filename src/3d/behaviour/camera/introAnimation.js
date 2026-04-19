@@ -1,6 +1,6 @@
 import { Vector3, Quaternion } from 'three';
 import { allowUserToControlCamera, smoothlyMoveCamera } from './cameraAnimation';
-import { EVENTS } from '../constants';
+import { EVENTS } from '../../../constants';
 
 const cameraTrackerEnabled = false;
 

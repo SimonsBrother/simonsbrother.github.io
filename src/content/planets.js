@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { Planet } from '../3d/planet';
+import { Planet } from '../3d/environment/planet';
 import { loading } from '../3d/loadingState';
 import { tagDefinitions as TAGS } from './tags';
 import { projectContent } from './projectContent';

@@ -1,20 +1,6 @@
-import * as THREE from 'three';
-import * as QUARKS from 'three.quarks';
-
-import { Planet } from './3d/planet';
-import { setupDoubleClickUnfocus, setupFocusing, updateFocus } from './3d/focus';
-import { addBlackHole } from './3d/quasar/blackHole';
-import { addPlanets } from './content/planets';
-import { addPostProcessing } from './3d/postProcessing';
-import { logCameraPosAndRotation, runIntroAnimation, setupCameraInitialStateForIntroduction } from './3d/introAnimation';
-import { setupCameraAnimation } from './3d/cameraAnimation';
 import { setupComponents } from './components/componentLoader';
-import { addLight, addCubeMap, makeCamera, makeControls, makeRenderer, onWindowResized, setupPointer } from './3d/sceneSetup';
-import { addTextAccretionDisk } from './3d/quasar/textAccretionDisk';
-import { loading } from './3d/loadingState';
 import { ConditionalScrollSystem } from './components/scrollSystem/conditionalScrollSystem';
 import { setupBorders } from './components/globalstyles/borders';
-import { EVENTS } from './constants';
 
 // Prioritised
 const scrollSystem = new ConditionalScrollSystem();
@@ -27,52 +13,11 @@ function onDOMContentLoaded() {
   document.addEventListener('touchend', () => onWindowResized(renderer, camera));
 }
 
-// Foundation
-const scene = new THREE.Scene();
-const renderer = makeRenderer();
-const camera = makeCamera();
-const controls = makeControls(scene, renderer, camera);
+// 3D
+import { setupScene, onWindowResized } from './3d/setup';
+import { setupEnvironment } from './3d/environment';
+import { setupBehaviours } from './3d/behaviour';
 
-// Environment
-addCubeMap(scene);
-addLight(scene);
-const batchedRenderer = new QUARKS.BatchedRenderer();
-const updateAccretionDiskFlows = addTextAccretionDisk(scene);
-const composer = addPostProcessing(scene, camera, renderer);
-addPlanets(scene);
-addBlackHole(scene, camera);
-
-// UI
-setupPointer(camera, scene);
-setupFocusing(camera, controls);
-document.addEventListener(EVENTS.INTRO_COMPLETE, () => {
-  setupDoubleClickUnfocus(document);
-});
-setupCameraAnimation(camera, controls);
-setupCameraInitialStateForIntroduction(camera, controls);
-
-// Handle window resizing
-window.addEventListener('resize', () => {
-  onWindowResized(renderer, camera);
-});
-
-const clock = new THREE.Clock();
-let delta;
-
-logCameraPosAndRotation(camera); // For testing; must be enabled from variable
-
-loading.sceneSetup.progress = 1;
-
-// Main loop
-runIntroAnimation();
-
-function animate() {
-  delta = clock.getDelta();
-  Planet.updateAllPlanets();
-  updateFocus();
-  updateAccretionDiskFlows(delta, camera);
-  batchedRenderer.update(delta); // Update black hole particles
-  composer.render(delta); // Render with post-processing
-}
-
-renderer.setAnimationLoop(animate);
+const { scene, renderer, camera } = setupScene();
+const { batchedRenderer, updateAccretionDiskFlows, composer } = setupEnvironment(scene, camera, renderer);
+setupBehaviours(scene, camera, renderer, updateAccretionDiskFlows, batchedRenderer, composer);

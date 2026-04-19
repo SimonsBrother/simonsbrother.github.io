@@ -1,7 +1,7 @@
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 import * as THREE from 'three';
-import { loading } from './loadingState';
-import { setPlanetsOutline } from './postProcessing';
+import { loading } from '../loadingState';
+import { setPlanetsOutline } from './post_processing';
 
 const loader = new GLTFLoader();
 const timePageLoaded = performance.now();

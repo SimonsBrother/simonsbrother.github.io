@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { getCameraDirectionAsPos } from './focus';
+import { getCameraDirectionAsPos } from '../focus';
 
 const overviewAnimationDuration = 2000;
 

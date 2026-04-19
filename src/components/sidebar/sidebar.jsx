@@ -1,9 +1,9 @@
 import React from 'react';
 import {
   focusOnObjectIfValid, followTarget,
-} from '../../3d/focus';
-import { Planet } from '../../3d/planet';
-import { moveToOverviewPos, animating } from '../../3d/cameraAnimation';
+} from '../../3d/behaviour/focus';
+import { Planet } from '../../3d/environment/planet';
+import { moveToOverviewPos, animating } from '../../3d/behaviour/camera/cameraAnimation';
 import { EVENTS } from '../../constants';
 import { SidebarEntry } from './sidebarEntry';
 import { SidebarBtn } from './sidebarBtn';

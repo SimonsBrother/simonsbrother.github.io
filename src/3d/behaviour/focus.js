@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import { clearOutline, setOutlinedObject } from './postProcessing';
-import { smoothlyMoveCamera, animating, sceneOriginPosition, moveToOverviewPos } from './cameraAnimation';
-import { EVENTS } from '../constants';
+import { clearOutline, setOutlinedObject } from '../environment/post_processing';
+import { smoothlyMoveCamera, animating, sceneOriginPosition, moveToOverviewPos } from './camera/cameraAnimation';
+import { EVENTS } from '../../constants';
 
 export let followTarget = null; // The object that the camera will attempt to follow.
 const targetPos = new THREE.Vector3(); // The global position of the target object

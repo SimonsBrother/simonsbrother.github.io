@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { BLACK_HOLE_RADIUS } from './quasarConfig';
-import { loading } from '../loadingState';
+import { loading } from '../../../loadingState';
 
 /**
  * Creates a black sphere and adds it to the scene.

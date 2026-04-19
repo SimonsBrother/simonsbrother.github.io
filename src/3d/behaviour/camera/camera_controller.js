@@ -7,6 +7,11 @@ export class CustomArcballControls extends ArcballControls {
     // When disabling controls, how long to wait for before re-attempting to disable controls if the user was touching the screen
     this.repeatControlsDisableDelay = 100;
 
+    this.cursorZoom = true;
+    this.enableFocus = false;
+    this.setGizmosVisible(false);
+    this.update();
+
     document.addEventListener('touchstart', () => this.touchDown = true);
     document.addEventListener('touchend', () => this.touchDown = false);
   }
