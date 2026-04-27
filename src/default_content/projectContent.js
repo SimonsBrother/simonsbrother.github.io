@@ -115,12 +115,12 @@ export const projectContent = [
       TAGS.TEAMWORK,
     ],
     iconPath: 'projects/mac/icon.svg',
-    modelPath: undefined, // TODO
+    modelPath: 'projects/mac/model.glb',
 
     planetSize: 5,
-    orbitRadius: 100,
+    orbitRadius: 140,
     orbitStartingAngle: 180,
-    orbitSpeed: 5,
+    orbitSpeed: 2,
   },
 
   {
@@ -254,6 +254,7 @@ export const projectContent = [
     planetSize: 5,
     orbitRadius: 250,
     orbitStartingAngle: 30,
+    orbitSpeed: 10,
     planetRotationSpeed: new THREE.Euler(0.5, 0.5, 0),
     orbitOrientation: new THREE.Euler(10, 30, 0),
   },
