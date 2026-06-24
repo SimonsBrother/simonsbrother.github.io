@@ -95,6 +95,36 @@ export const projectContent = [
   },
 
   {
+    name: 'Moon Rover',
+    description: bulletPoints([
+      '8-month challenge to create an autonomous and manually operable moon rover robot capable of transferring sediment',
+      `Applied ${b('ROS 2')} with ${b('Python')}, ${b('Bash')}, and ${b('C++')} to develop a software solution, taking advantage of ROS 2’s microservice architecture to use Gazebo for simulation during robot construction`,
+      'Focused on developer tools to accelerate development and reduce toil, IP network communication, and hardware integration; applied Git knowledge and demonstrated quick problem-solving to fix issues during the competition',
+      'Won first place, strengthened communication skills, worked under pressure, broadened technical understanding',
+    ]) + github('https://github.com/jsmith-exe/lunabotics') + date(2026),
+
+    images: [
+      { url: 'projects/rover/rover1.JPG', altText: 'The rover, focused on the drum bucket for excavation.' },
+      { url: 'projects/rover/rover2.JPG', altText: 'The rover\'s frame, without the drum bucket.' },
+      { url: 'projects/rover/rover3.JPG', altText: 'The front of the rover.' },
+      { url: 'projects/rover/rover4.JPG', altText: 'A closeup of a wheel of the rover.' },
+      { url: 'projects/rover/rover5.JPG', altText: 'The back of the rover.' },
+      { url: 'projects/rover/rover_rviz.png', altText: 'A screenshot of the basestation - the cameras are showing a simulated environment.' },
+    ],
+    tags: [
+      TAGS.PYTHON,
+      TAGS.CPP,
+    ],
+    iconPath: 'projects/rover/icon.svg',
+    // modelPath: 'projects/rover/model.glb',
+
+    planetSize: 5,
+    orbitRadius: 140,
+    orbitStartingAngle: 270,
+    orbitSpeed: 2,
+  },
+
+  {
     name: 'MAC',
     description: heading('Marine Autonomy Challenge') + bulletPoints(['6-month challenge to create an autonomous software system controlling a small catamaran, in a team of five',
       `Used ${b('Python')} to send commands and receive sensor data and video across serial port, ${b('TCP')}, and ${b('UDP')} connections to achieve autonomous navigation, obstacle avoidance, berthing, and object recognition and position estimation`,
@@ -119,7 +149,7 @@ export const projectContent = [
 
     planetSize: 5,
     orbitRadius: 140,
-    orbitStartingAngle: 180,
+    orbitStartingAngle: 150,
     orbitSpeed: 2,
   },
 
