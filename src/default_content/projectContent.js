@@ -116,7 +116,7 @@ export const projectContent = [
       TAGS.CPP,
     ],
     iconPath: 'projects/rover/icon.svg',
-    // modelPath: 'projects/rover/model.glb',
+    modelPath: 'projects/rover/model.glb',
 
     planetSize: 5,
     orbitRadius: 140,
